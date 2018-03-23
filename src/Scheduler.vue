@@ -29,7 +29,7 @@
                 </scheduler-list>
             </div>
         </div>
-        <div v-else class="col-lg-12 text-center">
+        <div v-else class="col-lg-12">
             Fetching schedules...
         </div>
     </div>
@@ -78,11 +78,11 @@ export default {
             return schedules;
         },
 
-        // Provide a list of only schedules coming up right away
+        // Provide a list of only schedules coming up very soon
         sortedSchedulesNow() {
             let now = new Date();
             return this.sortedSchedules
-                .filter(schedule => schedule.next.toDate() - now < 60000);
+                .filter(schedule => schedule.next.toDate() - now < 5 * 60000);
         },
 
         // Provide a list of only schedules coming up in the next 24 hours
