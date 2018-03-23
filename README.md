@@ -17,5 +17,6 @@ If you'd like to install this yourself instead of using the live version above, 
 
 # Notes
 
-I used the cron-parser library available on npm. I felt it was well within the spirit of the challenge to use third-party libraries useful to the task.
+I used the `cron-parser` library available on npm. I felt it was well within the spirit of the challenge to use third-party libraries useful to the task.
+
 
