@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div v-if="error" class="col-lg-12 text-danger">
+        <div v-if="error" class="col-lg-12 text-danger text-center">
             Unable to load schedules.
         </div>
         <div v-else-if="schedules" class="col-lg-12">
@@ -14,7 +14,7 @@
                 </li>
             </ul>
         </div>
-        <div v-else class="col-lg-12">
+        <div v-else class="col-lg-12 text-center">
             Fetching schedules...
         </div>
     </div>
@@ -36,6 +36,7 @@ export default {
             this.checkSchedules();
         }, 500);
         this.loadSchedules();
+        Notifications.requestPermission();
     },
     computed: {
         sortedSchedules() {
@@ -76,10 +77,20 @@ export default {
             if (!this.schedules) {
                 return;
             }
+            let now = new Date();
             this.schedules
                 .forEach(schedule => {
                     schedule.next = cronparser.parseExpression(schedule.cron).next();
+                    let scheduleDate = schedule.next.toDate();
+                    if (scheduleDate - now < 1000 && (!schedule.lastNotified || schedule.lastNotified < scheduleDate)) {
+                        this.notify(schedule);
+                    }
                 });
+        },
+        notify(schedule) {
+            schedule.lastNotified = new Date();
+            console.log('time for', schedule);
+            new Notification(schedule.name);
         },
     },
 }
