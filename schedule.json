@@ -1,0 +1,60 @@
+{
+    "data": [
+        {
+            "attributes": {
+                "cron": "0 7 14 3 *",
+                "name": "Repot Sunny the Succulent"
+            },
+            "type": "task",
+            "id": "0"
+        },
+        {
+            "attributes": {
+                "cron": "0 18 20 * *",
+                "name": "Pick up Grove order from mailroom"
+            },
+            "type": "task",
+            "id": "1"
+        },
+        {
+            "attributes": {
+                "cron": "30 7 * * 1",
+                "name": "Water Sunny the Succulent"
+            },
+            "type": "task",
+            "id": "2"
+        },
+        {
+            "attributes": {
+                "cron": "0 12 * * 3",
+                "name": "Lunch with Mrs. Meyers"
+            },
+            "type": "task",
+            "id": "3"
+        },
+        {
+            "attributes": {
+                "cron": "0 14 * *",
+                "name": "Farmer's Market"
+            },
+            "type": "task",
+            "id": "4"
+        },
+        {
+            "attributes": {
+                "cron": "15 7 * * 1-5",
+                "name": "Make coffee"
+            },
+            "type": "task",
+            "id": "5"
+        },
+        {
+            "attributes": {
+                "cron": "0 6-22 * * *",
+                "name": "Stretch and get water"
+            },
+            "type": "task",
+            "id": "6"
+        }
+    ]
+}
