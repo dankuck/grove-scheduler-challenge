@@ -2,7 +2,6 @@ var elixir = require('laravel-elixir');
 
 elixir.ready(function () {
   elixir.webpack.mergeConfig({
-    // ensure we are using the version of Vue that supports templates
     resolve: {
       alias: {
         vue: 'vue/dist/vue.common.js'
@@ -16,6 +15,10 @@ elixir.ready(function () {
     },
     module: {
       loaders: [
+        {
+          test: /\.json$/,
+          loader: 'json-loader'
+        },
         {
           test: /\.vue$/,
           loader: 'vue-loader'

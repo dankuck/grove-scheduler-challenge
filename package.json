@@ -18,12 +18,16 @@
   },
   "homepage": "https://github.com/dankuck/grove-scheduler-challenge#readme",
   "devDependencies": {
+    "cron-parser": "^2.4.5",
     "gulp": "^3.9.1",
     "jquery": "^3.2.1",
+    "json-loader": "^0.5.7",
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-vue-2": "^0.3.0",
     "laravel-elixir-webpack-official": "^1.0.10",
     "lodash": "^4.16.2",
-    "vue": "^2.1.*"
-  }
+    "vue": "^2.1.*",
+    "vue-resource": "^1.0.3"
+  },
+  "dependencies": {}
 }
