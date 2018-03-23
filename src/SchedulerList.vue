@@ -6,7 +6,8 @@
                 class="list-group-item"
             >
                 <span class="badge">{{ schedule.next._date.fromNow() }}</span>
-                {{ schedule.name }}
+                <div class="title">{{ schedule.name }}</div>
+                <div class="next">Next: {{ schedule.next.toString() }}</div>
             </li>
         </ul>
         <p v-else>
@@ -20,3 +21,15 @@ export default {
     props: ['schedules', 'relaxMsg'],
 }
 </script>
+
+<style>
+.title {
+    font-size: 130%;
+    margin-bottom: .5em;
+}
+
+.next {
+    color: #888;
+    font-size: 90%;
+}
+</style>
