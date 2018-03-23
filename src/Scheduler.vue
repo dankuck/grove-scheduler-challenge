@@ -36,7 +36,7 @@ export default {
             this.checkSchedules();
         }, 500);
         this.loadSchedules();
-        Notifications.requestPermission();
+        Notification.requestPermission();
     },
     computed: {
         sortedSchedules() {
