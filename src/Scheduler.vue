@@ -4,9 +4,13 @@
             Unable to load schedules.
         </div>
         <div v-else-if="schedules" class="col-lg-12">
-            <ul>
-                <li v-for="schedule in sortedSchedules">
-                    {{ schedule.attributes.name }} on {{ schedule.next }}
+            <ul class="list-group">
+                <li 
+                    v-for="schedule in sortedSchedules" 
+                    class="list-group-item"
+                >
+                    <span class="badge">{{ schedule.next._date.fromNow() }}</span>
+                    {{ schedule.name }}
                 </li>
             </ul>
         </div>
@@ -56,12 +60,13 @@ export default {
             this.$http.get(this.scheduleEndpoint)
                 .then(
                     response => {
-                        let schedules = response.data.data;
-                        schedules
-                            .forEach(schedule => {
-                                schedule.cronInterval = cronparser.parseExpression(schedule.attributes.cron);
-                            });
-                        this.schedules = schedules;
+                        this.schedules = response.data.data.map(schedule => {
+                            return {
+                                name: schedule.attributes.name,
+                                cron: schedule.attributes.cron,
+                                next: null,
+                            };
+                        });
                         this.checkSchedules();
                     },
                     response => this.error = true
@@ -73,7 +78,7 @@ export default {
             }
             this.schedules
                 .forEach(schedule => {
-                    schedule.next = schedule.cronInterval.next();
+                    schedule.next = cronparser.parseExpression(schedule.cron).next();
                 });
         },
     },
