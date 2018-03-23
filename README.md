@@ -21,7 +21,7 @@ Depending on your browser, desktop notifications may not work when this is run l
 
 I used the `cron-parser` library available on npm. I felt it was well within the spirit of the challenge to use third-party libraries for tasks like parsing.
 
-This application uses a copied version of the data at <a href="https://scheduler-challenge.herokuapp.com/schedule">this endpoint</a>. To use the endpoint, the application would need to reside on the herokuapp.com domain or else the endpoint would need to use CORS to allow connections from the app's domain.
+This application uses a copied version of the data at <a href="https://scheduler-challenge.herokuapp.com/schedule">this endpoint</a>. To use the endpoint directly, the application would need to reside on the herokuapp.com domain or else the endpoint would need to use CORS to allow connections from the app's domain.
 
 This application was created in Vue.js utilizing Bootstrap 3 for style.
 
